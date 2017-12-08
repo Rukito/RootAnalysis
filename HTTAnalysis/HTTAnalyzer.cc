@@ -22,7 +22,7 @@ HTTAnalyzer::HTTAnalyzer(const std::string & aName, const std::string & aDecayMo
                 TFile::SetCacheFileDir("/tmp/");
 
                 //std::string dataPUFileName = "http://akalinow.web.cern.ch/akalinow/Data_Pileup_2016_271036-284044_13TeVMoriond17_23Sep2016ReReco_69p2mbMinBiasXS.root";
-		std::string dataPUFileName = "http://akalinow.web.cern.ch/akalinow/MyDataPileupHistogram_Cert_294927-302663_13TeV_PromptReco_Collisions17_69mb.root";
+		std::string dataPUFileName = "http://akalinow.web.cern.ch/akalinow/Data-MC_Pileup_B-C-12Sep_D-E-Prompt_Cert_294927-305185_13TeV_PromptReco_Collisions17_69mb.root";
 
                 puDataFile_ = TFile::Open(dataPUFileName.c_str(),"CACHEREAD");
 
@@ -140,7 +140,7 @@ void HTTAnalyzer::fillControlHistos(const std::string & hNameSuffix, float event
         float higgsPt =  (aVisSum + aMET.getP4(aSystEffect)).Pt();
         float jetsMass = 0;
         if(nJets30>1) jetsMass = (aJet1.getP4(aSystEffect)+aJet2.getP4(aSystEffect)).M();
-
+	
         myHistos_->fill1DHistogram("h1DMassSV"+hNameSuffix,aPair.getP4(aSystEffect).M(),eventWeight);
         myHistos_->fill1DHistogram("h1DMassVis"+hNameSuffix, visMass, eventWeight);
         myHistos_->fill1DHistogram("h1DMassTrans"+hNameSuffix,aPair.getMTMuon(aSystEffect),eventWeight);
@@ -245,7 +245,7 @@ bool HTTAnalyzer::passCategory(unsigned int iCategory){
 //////////////////////////////////////////////////////////////////////////////
 bool HTTAnalyzer::analyze(const EventProxyBase& iEvent){
 
-        bool runSystematics = false;
+        bool runSystematics = true;
 
         const EventProxyHTT & myEventProxy = static_cast<const EventProxyHTT&>(iEvent);
         sampleName = getSampleName(myEventProxy);
