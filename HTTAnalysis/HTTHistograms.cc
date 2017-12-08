@@ -485,7 +485,7 @@ void HTTHistograms::finalizeHistograms(const std::vector<const HTTAnalysis::even
         }
 
         ///Make systematic effect histos.
-/*        for(unsigned int iSystEffect = (unsigned int)HTTAnalysis::NOMINAL;
+        for(unsigned int iSystEffect = (unsigned int)HTTAnalysis::NOMINAL;
             iSystEffect<=(unsigned int)HTTAnalysis::ZmumuDown; ++iSystEffect) {
                 if(iSystEffect==(unsigned int)HTTAnalysis::DUMMY_SYS) continue;
                 for(auto iCategory: mainCategoriesRejester) {
@@ -500,7 +500,7 @@ void HTTHistograms::finalizeHistograms(const std::vector<const HTTAnalysis::even
                         plotStack(iCategory, "UnRollMassSVPhiCP", iSystEffect);
                         plotStack(iCategory, "UnRollMassSVYCP", iSystEffect);
                 }
-        }*/
+        }
 
         ofstream eventCountFile("eventCount.txt",ios::out | ios::app);
         outputStream<<"HTTHistograms compilation time: "<<__TIMESTAMP__<<std::endl;
