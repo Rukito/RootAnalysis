@@ -19,9 +19,30 @@
 *.pcm
 
 # Directories
-###################
+##################
 */fig_png/*
 */fig_C/*
 */.deps/*
 */.libs/*
 m4/*
+
+#Automatically created
+##################
+*/Makefile*
+*/DictCint.cxx
+HTTAnalysis/httAnalysis
+HTTAnalysis/histogramSearch*
+*/test
+config*
+aclocal.m4
+autom4te.cache/
+depcomp
+install-sh
+libtool
+ltmain.sh
+missing
+Makefile*
+src/libRootAnalysis.la
+HTTAnalysis/eventCount.txt
+HTTAnalysis/.wscode.5f58a432-033a-11e7-9717-45a8a983beef.w/
+HTTAnalysis/Create_ini_files/

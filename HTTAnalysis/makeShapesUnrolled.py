@@ -34,9 +34,9 @@ categoryRootAnalysisNames = [
         ]
 
 categoryCombineNames = list()
-print "Hello world"
+print ("Hello world")
 
-for i in xrange(0,len(categoryRootAnalysisNames)):
+for i in range(0,len(categoryRootAnalysisNames)):
         tmp = categoryRootAnalysisNames[i]
         if tmp.count("_W"):
           tmp = tmp[:-2]
@@ -126,7 +126,7 @@ def getHistogram(name, histo):
     h = WAW_file.Get(name)
     txtFile=open("histogramSearch.txt","a")
     if h==None :
-        print "Missing histogram: ",name
+        print ("Missing histogram: " + name)
         txtFile.write("Search for histo: "+name+": 0\n")
         h = histo.Clone()
     else: 
@@ -136,7 +136,7 @@ def getHistogram(name, histo):
         name=name.replace("MatchT","MatchJ")
         hJ = WAW_file.Get(name)
         if hJ==None :
-          print "Missing histogram: ",name
+          print ("Missing histogram: " + name)
           txtFile.write("Search for histo: "+name+": 0\n")
           hJ = histo.Clone()
         else:
@@ -159,9 +159,9 @@ hData = 0
 
 open("histogramSearchMT.txt","w").write("Looking for histograms for Combine \n")
 
-print "MAIN REGION\n\n\n\n\n"
+print ("MAIN REGION\n\n\n\n\n")
 
-for iCategory in xrange(0,len(categoryCombineNames)):
+for iCategory in range(0,len(categoryCombineNames)):
     categoryName = categoryCombineNames[iCategory]
     if categoryName not in histoPrefix.keys(): continue
     if categoryDirMade: gDirectory.cd("..")
@@ -169,7 +169,7 @@ for iCategory in xrange(0,len(categoryCombineNames)):
     gDirectory.cd(categoryName)
     categoryDirMade=True
 
-    for key,value in histogramsMap.iteritems():
+    for key,value in histogramsMap.items():
         hName = histoPrefix[categoryName] + key+"_"+categoryRootAnalysisNames[iCategory]
         templateHisto = TH1F(value,"",nbins[categoryName][0]*nbins[categoryName][1],0.5,nbins[categoryName][0]*nbins[categoryName][1] + 0.5)
         histogram = getHistogram(hName, templateHisto)
@@ -196,7 +196,7 @@ for iCategory in xrange(0,len(categoryCombineNames)):
             histogramDown.SetName(value+"_"+nuisanceParam+"Down")
             histogramDown.Write()
 
-print "\n\n\n\n\nCONTROL REGIONS\n\n\n\n\n"
+print ("\n\n\n\n\nCONTROL REGIONS\n\n\n\n\n")
 
 ##################################################
 #control regions
@@ -295,7 +295,7 @@ nbins = {"mt_wjets_0jet_cr":(1,80,200),
 
 categoryDirMade = True
 
-for iCategory in xrange(0,len(categoryCombineNames)):
+for iCategory in range(0,len(categoryCombineNames)):
     categoryName = categoryCombineNames[iCategory]
     if categoryName not in histoPrefix.keys(): continue
     if categoryDirMade: gDirectory.cd("..")
@@ -303,7 +303,7 @@ for iCategory in xrange(0,len(categoryCombineNames)):
     gDirectory.cd(categoryName)
     categoryDirMade=True
 
-    for key,value in histogramsMap.iteritems():
+    for key,value in histogramsMap.items():
         hName = histoPrefix[categoryName] + key
         hName = hName +"_"+categoryRootAnalysisNames[iCategory]
         templateHisto = TH1F(value,"",nbins[categoryName][0]*nbins[categoryName][1],0.5,nbins[categoryName][0]*nbins[categoryName][1] + 0.5)
@@ -382,7 +382,7 @@ categoryRootAnalysisNames = [
 
 categoryCombineNames = list()
 
-for i in xrange(0,len(categoryRootAnalysisNames)):
+for i in range(0,len(categoryRootAnalysisNames)):
         tmp = categoryRootAnalysisNames[i]
         if tmp.count("_QCD"):
           tmp = tmp.replace("QCD","qcd")
@@ -449,9 +449,9 @@ hData = 0
 
 open("histogramSearchTT.txt","w").write("Looking for histograms for Combine \n")
 
-print "MAIN REGION\n\n\n\n\n"
+print ("MAIN REGION\n\n\n\n\n")
 
-for iCategory in xrange(0,len(categoryCombineNames)):
+for iCategory in range(0,len(categoryCombineNames)):
     categoryName = categoryCombineNames[iCategory]
     if categoryName not in histoPrefix.keys(): continue
     if categoryDirMade: gDirectory.cd("..")
@@ -459,7 +459,7 @@ for iCategory in xrange(0,len(categoryCombineNames)):
     gDirectory.cd(categoryName)
     categoryDirMade=True
 
-    for key,value in histogramsMap.iteritems():
+    for key,value in histogramsMap.items():
         hName = histoPrefix[categoryName] + key+"_"+categoryRootAnalysisNames[iCategory]
         templateHisto = TH1F(value,"",nbins[categoryName][0]*nbins[categoryName][1],0.5,nbins[categoryName][0]*nbins[categoryName][1] + 0.5)
         histogram = getHistogram(hName, templateHisto)
@@ -490,7 +490,7 @@ for iCategory in xrange(0,len(categoryCombineNames)):
             histogramDown.SetName(value+"_"+nuisanceParam+"Down")
             histogramDown.Write()
 
-print "\n\n\n\n\nCONTROL REGIONS\n\n\n\n\n"
+print ("\n\n\n\n\nCONTROL REGIONS\n\n\n\n\n")
 
 ##################################################
 #control regions
@@ -581,7 +581,7 @@ nbins = {"tt_0jet_qcd_cr":(1,1),
 
 categoryDirMade = True
 
-for iCategory in xrange(0,len(categoryCombineNames)):
+for iCategory in range(0,len(categoryCombineNames)):
     categoryName = categoryCombineNames[iCategory]
     if categoryName not in histoPrefix.keys(): continue
     if categoryDirMade: gDirectory.cd("..")
@@ -589,7 +589,7 @@ for iCategory in xrange(0,len(categoryCombineNames)):
     gDirectory.cd(categoryName)
     categoryDirMade=True
 
-    for key,value in histogramsMap.iteritems():
+    for key,value in histogramsMap.items():
         hName = histoPrefix[categoryName] + key
         hName = hName +"_"+categoryRootAnalysisNames[iCategory]
         templateHisto = TH1F(value,"",nbins[categoryName][0]*nbins[categoryName][1],0.5,nbins[categoryName][0]*nbins[categoryName][1] + 0.5)
