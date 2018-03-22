@@ -25,3 +25,22 @@
 */.deps/*
 */.libs/*
 m4/*
+
+#Automaticly created
+##################
+config*
+*/Makefile
+Makefile*
+aclocal.m4
+autom4te.cache/
+depcomp
+install-sh
+libtool
+ltmain.sh
+missing
+*/test
+*/DictCint.cxx
+src/libRootAnalysis.la
+HTTAnalysis/httAnalysis
+HTTAnalysis/.wscode.5f58a432-033a-11e7-9717-45a8a983beef.w/
+HTTAnalysis/eventCount.txt
